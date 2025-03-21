@@ -1,7 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
+import { BASE_URL } from "@/constants/constants";
 
 const fetchSpecificPeople = async () => {
-  const response = await fetch(`https://swapi.py4e.com/api/people/`);
+  const response = await fetch(`${BASE_URL}/people/`);
   if (!response.ok) {
     throw new Error("Failed to fetch characters");
   }

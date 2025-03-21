@@ -1,9 +1,10 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
+import { BASE_URL } from "@/constants/constants";
 
 const fetchPeople = async ({ pageParam = 1 }: { pageParam?: number }) => {
   try
   {
-    const response = await fetch(`https://swapi.py4e.com/api/people/?page=${pageParam}`);
+    const response = await fetch(`${BASE_URL}/people/?page=${pageParam}`);
   
     if (!response.ok) 
     {

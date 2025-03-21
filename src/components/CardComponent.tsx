@@ -2,28 +2,39 @@ import React from "react";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
 import Link from "next/link";
 import RowDetailComponent from "./RowDetailComponent";
 
-const CardComponent = (cardData: any) => {
+interface CardComponentProps {
+  cardData: any;
+  cardDetailsFields: { title: string; value: string }[];
+}
+
+
+const CardComponent: React.FC<CardComponentProps> = ({ cardData, cardDetailsFields }) => {
+  console.log("cardDataR",cardData)
   return (
     <div className="grid grid-cols-2 gap-8 mt-8">
-      {cardData.cardData.results.map((character: any) => (
-        <Link key={character.name} href={`/${character.name}`} passHref>
+      {cardData.results.map((item: any) => (
+        <Link key={item.name} href={`/${item.name}`} passHref>
           <Card>
             <CardHeader>
-              <CardTitle className="font-extrabold">{character.name}</CardTitle>
+              <CardTitle className="font-extrabold">{item.name}</CardTitle>
             </CardHeader>
 
             <CardContent className="grid gap-4">
-              <RowDetailComponent title="Birth Year" data={character.birth_year} />
-              <RowDetailComponent title="Height" data={`${character.height} cm`} />
-              <RowDetailComponent title="Weight" data={`${character.mass} kgs`} />
-              <RowDetailComponent title="Eye Color" data={`${character.eye_color}`} />
+              { cardDetailsFields.map((field) => (
+
+                <RowDetailComponent 
+                  key={field.value}
+                  title={field.title}
+                  data={item[field.value]}
+                />
+
+              ))}
             </CardContent>
           </Card>
         </Link>
