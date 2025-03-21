@@ -11,7 +11,7 @@ import RowDetailComponent from "./RowDetailComponent";
 
 const CardComponent = (cardData: any) => {
   return (
-    <div className="grid grid-cols-2 gap-8 mt-24">
+    <div className="grid grid-cols-2 gap-8 mt-8">
       {cardData.cardData.results.map((character: any) => (
         <Link key={character.name} href={`/${character.name}`} passHref>
           <Card>
