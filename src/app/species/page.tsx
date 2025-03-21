@@ -1,11 +1,11 @@
 "use client"
 
 import CardComponent from "@/components/CardComponent";
-import { usePeople } from "@/hooks/fetchPeople"
+import { useSpecies } from "@/hooks/fetchSpecies";
 
 export default function Home() {
 
-  const { data, isLoading, isError } = usePeople();
+  const { data, isLoading, isError } = useSpecies();
 
   if (isLoading) return <p>Loading...</p>;
   if (isError) return <p>Error loading data</p>;

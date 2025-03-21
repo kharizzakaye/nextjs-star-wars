@@ -11,8 +11,8 @@ const NavbarComponent = () => {
 
             {/* Navigation Links */}
             <ul className="hidden md:flex space-x-6">
-                <li><a href="#" className=" hover:font-bold">Characters</a></li>
-                <li><a href="#" className=" hover:font-bold">Species</a></li>
+                <li><a href="/" className=" hover:font-bold">Characters</a></li>
+                <li><a href="/species" className=" hover:font-bold">Species</a></li>
                 <li><a href="#" className=" hover:font-bold">Planets</a></li>
                 <li><a href="#" className=" hover:font-bold">Starships</a></li>
             </ul>
